@@ -1,0 +1,17 @@
+<script>
+    var CLIENT_ID = 'c297b2978439447999cbe02d37283904'; //this is the ID of my Spotify API project
+    var REDIRECT_URI = 'https://github.com/connor-penrod/spotify_api_demo/spotify_redirect.html'; //this is where Spotify will send the user after they authorize
+    function getLoginURL(scopes) {
+        return 'https://accounts.spotify.com/authorize?client_id=' + CLIENT_ID +
+          '&redirect_uri=' + encodeURIComponent(REDIRECT_URI) +
+          '&scope=' + encodeURIComponent(scopes.join(' ')) +
+          '&response_type=token';
+    }
+    var url = getLoginURL([
+        'user-read-email playlist-modify-public' //this defines what permissions the app has
+    ]);
+    
+    window.location.href = url;
+    
+
+</script>
